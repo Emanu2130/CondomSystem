@@ -1,0 +1,20 @@
+ARENAS
+Control diigital de ingresos y egresos
+
+GUIA RAPIDA DE ACTUALIZACION DESDE ARENAS v1.2 a la v1.3
+
+*****************
+** Novedades:  **
+*****************
+
+1) Agregado el campo estado en el modulo de ingresos
+2) Agregado el campo y calculo de euros en los ingresos y egresos
+
+
+*****************************************************************
+** Para actualizar la base de datos, ejecute el siquiente sql: **
+*****************************************************************
+
+ALTER TABLE `egresos` ADD `total_euros` DOUBLE NOT NULL AFTER `total_us`
+ALTER TABLE `ingresos` ADD `Valor_Euros` DOUBLE NOT NULL AFTER `Valor_US`
+ALTER TABLE `ingresos` ADD `estado` VARCHAR( 225 ) NOT NULL AFTER `tipo_ingreso` 

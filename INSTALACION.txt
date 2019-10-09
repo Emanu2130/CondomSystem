@@ -1,0 +1,32 @@
+********************************************************************************************
+FUNDACION SLD (SOFTWARE LIBRE DOMINICANO) // WWW.FSLD.ORG
+********************************************************************************************
+GUIA INSTALACION ARENAS 1.1 First public stable release
+********************************************************************************************
+********************************************************************************************
+
+
+
+INFORMACION DEL PROGRAMA:
+********************************************************************************************
+ARENAS - Control digital de Ingresos y Egresos.
+Permite llevar un registro claro de todos los ingresos y egresos en su casa, proyectos,
+condominios o empresa, ya sea para fines personales, administrativos o contables.
+Los módulos del sistema son:
+Ingresos, Egresos, Proveedores, Empresas, Empleados, Cuentas bancarias, Locaciones,
+usuarios, tipos de ingresos, tipos de egresos, comprobantes fiscales, y métodos de pago.
+
+
+
+
+PASOS DE INSTALACION
+********************************************************************************************
+
+1) Crear una nueva base de datos y cargar el archivo arenas.sql
+2) Editar el archivo "ewconfig.php" y colocarle los datos de conexion mysql
+3) Subir la carpeta con todos los codigos a la carpeta publica de su servidor web eje "htdocs" o "public_html"
+4) Listo, ya puede accesar desde el navegador web y iniciar sesion con el usuario y clave: admin
+
+IMPORTANTE:: NO OLVIDE CAMBIAR LA CONTRASEÑA-
+
+www.fsld.org
