@@ -14,8 +14,13 @@ class CreateTblInmuebleTable extends Migration
     public function up()
     {
         Schema::create('tbl_inmueble', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id_inmueble');
+            $table->integer('nro_inmueble')->unique();
+            $table->string('nombre_propietario', 50);
+            $table->integer('alicuota');
             $table->timestamps();
+            $table->integer('id_condominio')->unsigned();
+            $table->foreign('id_condominio')->references('id_condominio')->on('tbl_condominio')->onDelete('cascade');
         });
     }
 

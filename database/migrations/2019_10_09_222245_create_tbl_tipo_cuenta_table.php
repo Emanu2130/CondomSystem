@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblStatusPagoTable extends Migration
+class CreateTblTipoCuentaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTblStatusPagoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_status_pago', function (Blueprint $table) {
-            $table->increments('id_status_pago');
-            $table->string('descripcion', 100);
+        Schema::create('tbl_tipo_cuenta', function (Blueprint $table) {
+            $table->increments('id_tipo_cuenta');
+            $table->string('cuenta', 20);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateTblStatusPagoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_status_pago');
+        Schema::dropIfExists('tbl_tipo_cuenta');
     }
 }
