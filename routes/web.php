@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\tbl_gastos_condominio;
 use App\tbl_proveedores;
 Route::get('/', function () {
-    var_dump(tbl_proveedores::all()->pluck('id_proveedor')->toArray());
+    return view('welcome');
 });
+ Route::get('test', 'proveedoresController@estado_de_cuentas');
+ Route::get('testPendientes', 'proveedoresController@pendientes');

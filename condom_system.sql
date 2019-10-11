@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2019 a las 06:50:17
+-- Tiempo de generación: 11-10-2019 a las 17:43:11
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -48,7 +48,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2019_10_09_222212_create_tbl_proveedores_table', 1),
 (8, '2019_10_09_222245_create_tbl_tipo_cuenta_table', 1),
 (9, '2019_10_09_222327_create_tbl_cuentas_table', 1),
-(10, '2019_10_09_222422_create_tbl_usuarios_table', 1);
+(10, '2019_10_09_222422_create_tbl_usuarios_table', 1),
+(11, '2019_10_11_131203_update_tbl_inmueble_table', 2);
 
 -- --------------------------------------------------------
 
@@ -187,13 +188,39 @@ INSERT INTO `tbl_gastos_condominio` (`id_gasto_condominio`, `id_condominio`, `de
 
 CREATE TABLE `tbl_inmueble` (
   `id_inmueble` int(10) UNSIGNED NOT NULL,
-  `nro_inmueble` int(11) NOT NULL,
+  `nro_inmueble` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nombre_propietario` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alicuota` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `id_condominio` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_inmueble`
+--
+
+INSERT INTO `tbl_inmueble` (`id_inmueble`, `nro_inmueble`, `nombre_propietario`, `alicuota`, `created_at`, `updated_at`, `id_condominio`) VALUES
+(71, '66r', 'Asa Lind', 5, '2019-10-11 17:29:22', '2019-10-11 17:29:22', 1),
+(72, '43h', 'Prof. Julian Lubowitz', 5, '2019-10-11 17:29:22', '2019-10-11 17:29:22', 1),
+(73, '3r', 'Miss Janessa Welch DDS', 5, '2019-10-11 17:29:22', '2019-10-11 17:29:22', 1),
+(74, '61y', 'Luella Gaylord', 5, '2019-10-11 17:29:22', '2019-10-11 17:29:22', 1),
+(75, '55g', 'Cayla Volkman', 5, '2019-10-11 17:29:22', '2019-10-11 17:29:22', 1),
+(76, '43b', 'Ms. Abigayle Borer IV', 5, '2019-10-11 17:29:22', '2019-10-11 17:29:22', 1),
+(77, '72q', 'Prof. Valentin West V', 5, '2019-10-11 17:29:22', '2019-10-11 17:29:22', 1),
+(78, '70k', 'Jeramie Koepp', 5, '2019-10-11 17:29:22', '2019-10-11 17:29:22', 1),
+(79, '23b', 'Adella Gusikowski', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(80, '84i', 'Nyah Heller IV', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(81, '30w', 'Wava Denesik V', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(82, '27d', 'Krystina Crona', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(83, '60d', 'Elliott Casper', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(84, '89f', 'Suzanne Kiehn', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(85, '39t', 'Afton Wuckert', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(86, '12g', 'Dovie Bahringer', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(87, '61f', 'Prof. Edwin Ullrich', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(88, '92y', 'Candice Blanda', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(89, '95y', 'Cathrine Walker', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1),
+(90, '100g', 'Stacey Lehner II', 5, '2019-10-11 17:29:23', '2019-10-11 17:29:23', 1);
 
 -- --------------------------------------------------------
 
@@ -210,6 +237,32 @@ CREATE TABLE `tbl_pagos_inmueble` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_pagos_inmueble`
+--
+
+INSERT INTO `tbl_pagos_inmueble` (`id_recibo_inmueble`, `mes`, `monto_mes`, `monto_pegado`, `id_status_pago`, `created_at`, `updated_at`) VALUES
+(9, 'April', 64586, 11544, 7, '2019-10-11 17:45:33', '2019-10-11 17:45:33'),
+(4, 'June', 8826, 36492, 20, '2019-10-11 17:45:33', '2019-10-11 17:45:33'),
+(2, 'April', 40216, 90979, 20, '2019-10-11 17:45:33', '2019-10-11 17:45:33'),
+(2, 'November', 41671, 61336, 18, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(10, 'January', 82656, 4412, 7, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(6, 'December', 48634, 8388, 17, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(1, 'June', 62682, 30479, 8, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(8, 'April', 16080, 93661, 17, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(17, 'November', 55233, 15470, 20, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(11, 'December', 91933, 78048, 4, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(5, 'January', 31680, 63305, 10, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(3, 'July', 79094, 67007, 3, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(11, 'November', 99428, 19889, 18, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(12, 'April', 78875, 58097, 5, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(11, 'August', 55713, 82913, 7, '2019-10-11 17:45:34', '2019-10-11 17:45:34'),
+(11, 'January', 14913, 62288, 7, '2019-10-11 17:45:35', '2019-10-11 17:45:35'),
+(17, 'February', 35289, 6302, 11, '2019-10-11 17:45:35', '2019-10-11 17:45:35'),
+(7, 'July', 19177, 78244, 2, '2019-10-11 17:45:35', '2019-10-11 17:45:35'),
+(12, 'March', 17182, 32784, 1, '2019-10-11 17:45:35', '2019-10-11 17:45:35'),
+(7, 'December', 9702, 38914, 20, '2019-10-11 17:45:35', '2019-10-11 17:45:35');
 
 -- --------------------------------------------------------
 
@@ -268,6 +321,32 @@ CREATE TABLE `tbl_recibo_inmueble` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_recibo_inmueble`
+--
+
+INSERT INTO `tbl_recibo_inmueble` (`id_recibo_inmueble`, `id_inmueble`, `mes`, `monto`, `id_status_pago`, `created_at`, `updated_at`) VALUES
+(1, 90, 'August', 6224215, 4, '2019-10-11 17:38:13', '2019-10-11 17:38:13'),
+(2, 81, 'June', 3, 20, '2019-10-11 17:38:14', '2019-10-11 17:38:14'),
+(3, 76, 'April', 8390, 17, '2019-10-11 17:38:15', '2019-10-11 17:38:15'),
+(4, 74, 'July', 76, 2, '2019-10-11 17:38:15', '2019-10-11 17:38:15'),
+(5, 76, 'February', 2, 14, '2019-10-11 17:38:15', '2019-10-11 17:38:15'),
+(6, 79, 'January', 58964, 19, '2019-10-11 17:38:15', '2019-10-11 17:38:15'),
+(7, 76, 'September', 683840645, 10, '2019-10-11 17:38:15', '2019-10-11 17:38:15'),
+(8, 71, 'March', 1923, 14, '2019-10-11 17:38:15', '2019-10-11 17:38:15'),
+(9, 81, 'August', 5, 15, '2019-10-11 17:38:15', '2019-10-11 17:38:15'),
+(10, 80, 'September', 90228451, 12, '2019-10-11 17:38:15', '2019-10-11 17:38:15'),
+(11, 80, 'September', 1, 14, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(12, 86, 'October', 1441306, 2, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(13, 81, 'January', 80517, 7, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(14, 72, 'August', 660, 11, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(15, 81, 'August', 69, 7, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(16, 71, 'February', 96214, 15, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(17, 79, 'March', 67346, 4, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(18, 80, 'September', 939451381, 15, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(19, 86, 'July', 41707261, 7, '2019-10-11 17:38:16', '2019-10-11 17:38:16'),
+(20, 83, 'November', 36973, 15, '2019-10-11 17:38:16', '2019-10-11 17:38:16');
 
 -- --------------------------------------------------------
 
@@ -477,7 +556,7 @@ ALTER TABLE `tbl_usuarios`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_condominio`
@@ -501,7 +580,7 @@ ALTER TABLE `tbl_gastos_condominio`
 -- AUTO_INCREMENT de la tabla `tbl_inmueble`
 --
 ALTER TABLE `tbl_inmueble`
-  MODIFY `id_inmueble` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_inmueble` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_proveedores`
@@ -513,7 +592,7 @@ ALTER TABLE `tbl_proveedores`
 -- AUTO_INCREMENT de la tabla `tbl_recibo_inmueble`
 --
 ALTER TABLE `tbl_recibo_inmueble`
-  MODIFY `id_recibo_inmueble` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_recibo_inmueble` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_status_pago`

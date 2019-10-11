@@ -2,83 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\tbl_cuentas;
+use App\tbl_inmueble;
+use App\tbl_proveedores;
+use App\tbl_recibo_inmueble;
+use App\tbl_status_pago;
+use App\tbl_tipo_cuenta;
 use Illuminate\Http\Request;
 
 class proveedoresController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    /* TODO LO QUE DIGA TEST EN VIEW "view('test') CAMBIELO POR EL NOMBRE DE LA VISTA QUE UD VAYA A CREAR" */
+    public function listado(){
+        $proveedores = tbl_proveedores::all()->toArray();
+        return view('test')->with('proveedores', $proveedores);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function estado_de_cuentas(){
+        $cuentas = tbl_cuentas::all()->toArray();
+        $proveedores = tbl_proveedores::all()->toArray();
+        $tipos_de_cuentas = tbl_tipo_cuenta::all()->toArray();
+
+        return view('test')->with(['cuentas'=>$cuentas, 'proveedores'=>$proveedores, 'tipos_de_cuentas'=>$tipos_de_cuentas]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function historico_de_cuentas(){
+        $proveedores = tbl_proveedores::all()->toArray();
+        return view('test')->with('proveedores', $proveedores);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function pagos_del_mes(){
+        $proveedores = tbl_proveedores::all()->toArray();
+        return view('test')->with('proveedores', $proveedores);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function pendientes(){
+        $recibos = tbl_recibo_inmueble::all()->toArray();
+        $status = tbl_status_pago::all()->toArray();
+        $inmuebles = tbl_inmueble::all()->toArray();
+        return view('testPendientes')->with(['status'=>$status, 'recibos'=>$recibos, 'inmuebles'=>$inmuebles]);
     }
 }

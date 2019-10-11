@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+session_start();
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\tbl_tipo_cuenta', 20)->create();
+        factory('App\tbl_inmueble', 20)->create();
     }
 }
